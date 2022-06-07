@@ -4,7 +4,7 @@ async function createAnimal(req,res){
     try{
         
         let animal = req.body;
-        if(!animal.nome || !animal.tipo || !animal.proprietario_id){
+        if(!animal.nome || !animal.tipo || !animal.proprietarioId){
             throw new Error("Nome, Tipo e ID do proprietário obrigatórios");
         }
         animal = await animalService.createAnimal(animal);
@@ -16,7 +16,7 @@ async function createAnimal(req,res){
 
 async function getAnimais(req,res){
     try{
-        res.send(await animalService.getAnimais(req.query.proprietario_id));
+        res.send(await animalService.getAnimais(req.query.proprietarioId));
     } catch(err){
         throw err
     }
@@ -33,7 +33,7 @@ async function getAnimal(req,res){
 async function updateAnimal(req,res){
     try{
         let animal = req.body;
-        if(!animal.nome || !animal.tipo || !animal.animal_id || !animal.proprietario_id){
+        if(!animal.nome || !animal.tipo || !animal.animalId || !animal.proprietarioId){
             throw new Error("Nome, tipo, ID do animal e ID do proprietário obrigatórios");
         }
         animal = await animalService.updateAnimal(animal);

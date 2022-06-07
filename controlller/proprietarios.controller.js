@@ -32,7 +32,7 @@ async function getProprietario(req,res){
 async function updateProprietario(req,res){
     try{
         let proprietario = req.body;
-        if(!proprietario.nome || !proprietario.telefone || !proprietario.proprietario_id){
+        if(!proprietario.nome || !proprietario.telefone || !proprietario.proprietarioId){
             throw new Error("Nome, Telefone e ID do proprietario obrigatórios");
         }
         proprietario = await proprietarioService.updateProprietario(proprietario);
